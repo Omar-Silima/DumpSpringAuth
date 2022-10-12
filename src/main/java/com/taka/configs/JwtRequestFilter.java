@@ -32,8 +32,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         final String header = request.getHeader("Authorization");
         String jwtToken = null;
         String username = null;
-        if(header != null && header.startsWith("Bearer ")){
-            jwtToken = header.substring(7);
+        if(header != null && header.startsWith("Maqal ")){
+            jwtToken = header.substring(5);
 
             try {
                 username = jwtUtils.getUsernameFromToken(jwtToken);
@@ -43,7 +43,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 System.out.println("Token has been expired");
             }
         }else {
-            System.out.println("Token does not start with Bearer ");
+            System.out.println("Token does not start with Maqal ");
         }
 
         if(username != null && SecurityContextHolder.getContext().getAuthentication() == null){

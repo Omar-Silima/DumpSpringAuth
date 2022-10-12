@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin("*")
 @RestController
-@RequestMapping("/dump/api/")
+@RequestMapping("/dump")
 public class DumpController {
     private DumpService dumpService;
 
@@ -19,13 +19,18 @@ public class DumpController {
     }
 
     //    list of dumps registered
-    @GetMapping("/")
+    @GetMapping("/all")
     public List<Dump> getAllDumps(){
         return  dumpService.getDumpList();
     }
 
+    @GetMapping("/{municipal}")
+    public List<Dump> getByMunicipal(@PathVariable String municipal){
+        return  dumpService.getByMunicipal(municipal);
+    }
+
 //    add new dump
-    @PostMapping("/")
+    @PostMapping("/new")
     public Dump addNewDump(@RequestBody Dump dump){
         return dumpService.saveDump(dump);
     }

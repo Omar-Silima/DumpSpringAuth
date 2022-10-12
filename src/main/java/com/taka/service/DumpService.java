@@ -22,6 +22,10 @@ public class DumpService {
         return dumpRepo.findAll();
     }
 
+    public List<Dump> getByMunicipal(String municipal){
+        return dumpRepo.findByMunicipal(municipal);
+    }
+
 //    save dumps
     public Dump saveDump(Dump dump){
         return dumpRepo.save(dump);
@@ -30,11 +34,9 @@ public class DumpService {
 //    update dump
     public Dump updateDump(Long id, Dump dump){
         Dump oldDump = dumpRepo.findById(id).get();
-        oldDump.setLat(dump.getLat());
-        oldDump.setLon(dump.getLon());
-        oldDump.setName(dump.getName());
-        oldDump.setShehia(dump.getShehia());
-        oldDump.setStreet(dump.getStreet());
+        oldDump.setDumpLatitude(dump.getDumpLatitude());
+        oldDump.setDumpLongitude(dump.getDumpLongitude());
+        oldDump.setDumpName(dump.getDumpName());
 
         return dumpRepo.save(oldDump);
     }

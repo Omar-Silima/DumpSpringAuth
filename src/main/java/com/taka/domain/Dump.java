@@ -12,24 +12,32 @@ public class Dump {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    private String street;
-    private String shehia;
-    private String lon;
-    private String lat;
-    private String photo;
+    private String municipal;
+    private String dumpName;
+    private String dumpAddress;
+    private String dumpDistrict;
+    private String dumpRegion;
+//    private String dumpStreet;
+    private String dumpLocation;
+    private String dumpLongitude;
+    private String dumpLatitude;
+//    private String photo;
 
     public Dump() {
     }
 
-    public Dump(Long id, String name, String street, String shehia, String lon, String lat, String photo) {
+    public Dump(Long id, String municipal, String dumpName, String dumpAddress,
+                String dumpDistrict, String dumpRegion, String dumpLongitude,
+                String dumpLatitude, String dumpLocation) {
         this.id = id;
-        this.name = name;
-        this.street = street;
-        this.shehia = shehia;
-        this.lon = lon;
-        this.lat = lat;
-        this.photo = photo;
+        this.municipal = municipal;
+        this.dumpName = dumpName;
+        this.dumpAddress = dumpAddress;
+        this.dumpDistrict = dumpDistrict;
+        this.dumpRegion = dumpRegion;
+        this.dumpLongitude = dumpLongitude;
+        this.dumpLatitude = dumpLatitude;
+        this.dumpLocation = dumpLocation;
     }
 
     public Long getId() {
@@ -40,51 +48,67 @@ public class Dump {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getMunicipal() {
+        return municipal;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMunicipal(String municipal) {
+        this.municipal = municipal;
     }
 
-    public String getStreet() {
-        return street;
+    public String getDumpName() {
+        return dumpName;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public void setDumpName(String dumpName) {
+        this.dumpName = dumpName;
     }
 
-    public String getShehia() {
-        return shehia;
+    public String getDumpAddress() {
+        return dumpAddress;
     }
 
-    public void setShehia(String shehia) {
-        this.shehia = shehia;
+    public void setDumpAddress(String dumpAddress) {
+        this.dumpAddress = dumpAddress;
     }
 
-    public String getLon() {
-        return lon;
+    public String getDumpDistrict() {
+        return dumpDistrict;
     }
 
-    public void setLon(String lon) {
-        this.lon = lon;
+    public void setDumpDistrict(String dumpDistrict) {
+        this.dumpDistrict = dumpDistrict;
     }
 
-    public String getLat() {
-        return lat;
+    public String getDumpRegion() {
+        return dumpRegion;
     }
 
-    public void setLat(String lat) {
-        this.lat = lat;
+    public void setDumpRegion(String dumpRegion) {
+        this.dumpRegion = dumpRegion;
     }
 
-    public String getPhoto() {
-        return photo;
+    public String getDumpLongitude() {
+        return dumpLongitude;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setDumpLongitude(String dumpLongitude) {
+        this.dumpLongitude = dumpLongitude;
+    }
+
+    public String getDumpLatitude() {
+        return dumpLatitude;
+    }
+
+    public void setDumpLatitude(String dumpLatitude) {
+        this.dumpLatitude = dumpLatitude;
+    }
+
+    public String getDumpLocation() {
+        return dumpLocation;
+    }
+
+    public void setDumpLocation(String dumpLocation) {
+        this.dumpLocation = dumpLocation;
     }
 }

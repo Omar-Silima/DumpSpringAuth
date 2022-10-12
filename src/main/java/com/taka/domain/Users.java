@@ -6,10 +6,15 @@ import java.util.Set;
 @Entity
 public class Users {
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     @Id
-    private String username;
     private String email;
     private String password;
+
+    @OneToOne
+    private Municipal municipal;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "USER_ROLE", joinColumns = {
@@ -18,15 +23,16 @@ public class Users {
                 @JoinColumn(name = "ROLE_NAME")
             }
     )
+
     private Set<Role> role;
 
-    public String getUsername() {
-        return username;
-    }
+//    public String getUsername() {
+//        return username;
+//    }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+//    public void setUsername(String username) {
+//        this.username = username;
+//    }
 
     public String getEmail() {
         return email;
@@ -50,5 +56,21 @@ public class Users {
 
     public void setRole(Set<Role> role) {
         this.role = role;
+    }
+
+    public Municipal getMunicipal() {
+        return municipal;
+    }
+
+    public void setMunicipal(Municipal municipal) {
+        this.municipal = municipal;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
